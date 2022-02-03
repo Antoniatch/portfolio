@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useContext } from "react/cjs/react.development";
+
 import styled from "styled-components";
 
 import Page from "../styled-components/Page";
@@ -6,7 +9,15 @@ import Presentation from "../components/Presentation";
 import SkillsContainer from "../components/SkillsContainer";
 import ProjectsContainer from "../components/ProjectsContainer";
 
+import authContext from "../context/authContext";
+
 const Home = ({ skills, projects }) => {
+
+    const { setIsConnected } = useContext(authContext);
+    useEffect(() => {
+        setIsConnected(false)
+    }, []);
+
     return (
         <>
         <Page>

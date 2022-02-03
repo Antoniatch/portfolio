@@ -128,12 +128,20 @@ async function main() {
                 skill_id: 10
             },
         ]
-    })
+    });
+
+    const loginData = await prisma.login.create({
+        data: {
+            user: 'Antonia',
+            password: 'wcschool'
+        }
+    });
 
     console.log(
         projectsData,
         skillsData,
-        skillProjectsData);
+        skillProjectsData,
+        loginData);
 
     console.log('Seeding finished')
 }

@@ -44,7 +44,10 @@ const ProjectsContainer = ({ projects }) => {
 export default ProjectsContainer;
 
 const ProjectsList = styled.div`
-    margin: 2rem 0;
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
 `
 
 const CancelButton = styled.button`

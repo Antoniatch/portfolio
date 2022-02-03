@@ -43,6 +43,6 @@ const Subtitle = styled.h4`
 const Text = styled.p`
     a {
         text-decoration: none;
-        color: purple;
+        color: #7bdcb5;
     }
 `

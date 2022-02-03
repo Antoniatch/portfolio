@@ -33,3 +33,8 @@ model Skill_projects {
   skill_id Int
   @@id([project_id, skill_id])
 }
+
+model Login {
+  user  String  @db.VarChar(50) @unique
+  password String @db.VarChar(50)
+}

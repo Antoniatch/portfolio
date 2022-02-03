@@ -1,11 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = ({ projects }) => {
 
     const [showMenu, setShowMenu] = useState(false);
-    const { id } = useParams();
 
     return (
         <Banner>
@@ -18,7 +17,7 @@ const Header = ({ projects }) => {
                     <MenuList>
                         <ul>
                             {projects.map((project) =>
-                                <ToProject to={`/${id}`} key={project.id}>
+                                <ToProject to={`/${project.id}`} key={project.id}>
                                     <li> {project.name} </li>
                                 </ToProject>
                             )}

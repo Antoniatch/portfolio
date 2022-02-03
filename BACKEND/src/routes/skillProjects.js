@@ -7,7 +7,12 @@ const { skill_projects } = new PrismaClient();
 
 skillProjectsRouter.get('/', async (req, res) => {
   skill_projects
-    .findMany()
+    .findMany({
+      include: {
+        project: true,
+        skill: true
+      }
+    })
     .then((el) => {
       res.status(200).json(el);
     })

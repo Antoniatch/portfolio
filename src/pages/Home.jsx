@@ -1,4 +1,6 @@
 import styled from "styled-components";
+
+import Page from "../styled-components/Page";
 import Name from "../components/Name";
 import Presentation from "../components/Presentation";
 import SkillsContainer from "../components/SkillsContainer";
@@ -21,10 +23,6 @@ const Home = ({ skills, projects }) => {
 
 export default Home;
 
-const Page = styled.div`
-    width: 90%;
-    margin: 3rem auto;
-`
 const Container = styled.div`
     display: flex;
     justify-content: space-around;

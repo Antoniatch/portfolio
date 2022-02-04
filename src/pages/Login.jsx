@@ -5,6 +5,8 @@ import { useContext } from "react/cjs/react.development";
 import styled from "styled-components";
 import authContext from "../context/authContext";
 import Page from "../styled-components/Page";
+import Input from "../styled-components/Input";
+import Submit from "../styled-components/Submit";
 
 const Login = () => {
     const [user, setUser] = useState('');
@@ -45,12 +47,12 @@ const Login = () => {
                         placeholder='Mot de passe'
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Connect
+                    <Submit
                         type='button'
                         onClick={() => login()}
                     >
                         Se connecter
-                    </Connect>
+                    </Submit>
 
                     {isConnected 
                         ? <Goto to='/new-project'> <h4> Ajouter un projet </h4> </Goto> 
@@ -77,31 +79,6 @@ const LoginContainer = styled.div`
         margin-bottom: 2rem;
     }
 `
-const Input = styled.input`
-    width: 60%;
-    font-family: inherit;
-    font-size: 1.1rem;
-    padding: .5rem;
-    margin: 1rem 0;
-
-    ::placeholder {
-        color: black;
-        font-style: italic
-    }
-`
-const Connect = styled.button`
-    width: 63%;
-    font-family: inherit;
-    font-size: 1.1rem;
-    text-align: center;
-    padding: .5rem;
-    border-radius: 0;
-    background-color: #7bdcb5;
-    margin: 3rem 0;
-    color: white;
-    font-weight: bolder;
-`
-
 const Goto=styled(Link)`
     text-decoration: none;
     color: white;

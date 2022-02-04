@@ -15,12 +15,12 @@ loginRouter.post('/', async (req, res) => {
     })
     .then((user) => {
         if(!user) {
-            return res.send({message: "Cannot find user"})
+            return res.send({message: "Utilisateur incorrect"})
         } else {
             if(password === 'wcschool') {
                 res.status(200).send('Welcome !')
             } else {
-                res.send({message: 'Not allowed'})
+                res.send({message: 'Mot de passe incorrect'})
             }
         }
     })

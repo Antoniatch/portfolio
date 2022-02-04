@@ -18,9 +18,10 @@ const Container = styled.div`
     display: flex;
     height: auto;
     margin: 2rem 0;
+    flex-direction: row-reverse;
 `
 const Picture = styled.img`
-    height: 5rem;
+    height: 10rem;
     border: yellow solid 2px;
     border-radius: 100%;
     background-color: white;
@@ -29,8 +30,9 @@ const Picture = styled.img`
 const NameDiv = styled.div`
     display: flex;
     flex-direction: column;
+    text-align: right;
 
     h2 {
-        font-weight: bold
+        font-weight: bold;
     }
 `

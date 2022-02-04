@@ -7,7 +7,6 @@ import projectSkillsContext from "../context/skillProjects";
 
 const SimpleSkillsContainer = ({ id }) => {
     const { skillProjects } = useContext(projectSkillsContext);
-    console.log(skillProjects)
 
     return (
         <HomeCard>

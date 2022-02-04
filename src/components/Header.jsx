@@ -1,6 +1,7 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+import styled from "styled-components";
 
 const Header = ({ projects }) => {
 
@@ -17,7 +18,7 @@ const Header = ({ projects }) => {
                     <MenuList>
                         <ul>
                             {projects.map((project) =>
-                                <ToProject to={`/${project.id}`} key={project.id}>
+                                <ToProject to={`/${project.id}`} key={project.id} >
                                     <li> {project.name} </li>
                                 </ToProject>
                             )}

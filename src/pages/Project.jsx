@@ -18,7 +18,8 @@ const Project = ({ projects }) => {
                     {project.screenshots.map((screen) => <Screenshots image={screen} />)}
                 </ScreenContainer>
                 <SimpleSkillsContainer id={project.id} />
-                </Container>
+            </Container>
+            <Link href={project.link} target='_blank' rel="noopener noreferrer"> <h4> Accéder au site </h4> </Link>
         </Page>
     );
 }
@@ -33,4 +34,9 @@ const ScreenContainer = styled.div`
     width: 40%;
     flex-direction: column;
     margin: 0 2rem;
+`
+const Link = styled.a`
+    text-decoration: none;
+    color: #7bdcb5;
+    padding: 10rem;
 `

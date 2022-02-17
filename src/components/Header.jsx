@@ -6,25 +6,34 @@ import styled from "styled-components";
 const Header = ({ projects }) => {
 
     const [showMenu, setShowMenu] = useState(false);
+    const [ logo, setLogo ] = useState("./resources/homepage.png");
 
     return (
         <Banner>
-            <Logo to='/'>
-                <img src="https://cdn-icons-png.flaticon.com/512/3442/3442450.png" alt="icon" />
+            <Logo 
+                to='/'
+                onMouseEnter={() => setLogo("./resources/homepageblack.png")}
+                onMouseLeave={() => setLogo("./resources/homepage.png")}
+            >
+                <img src={logo} alt="profil" />
             </Logo>
             <MenuContainer>
                 <Projects type='button' onClick={() => setShowMenu(!showMenu)}> <h3> Mes projets </h3> </Projects>
-                {!showMenu ? null :
+                    {showMenu && (
                     <MenuList>
-                        <ul>
+                        <ul
+                            role='button'
+                            onKeyDown={() => setShowMenu(!showMenu)}
+                        >
                             {projects.map((project) =>
                                 <ToProject to={`/${project.id}`} key={project.id} >
-                                    <li> {project.name} </li>
+                                    <li key={project.id}> {project.name} </li>
                                 </ToProject>
                             )}
                         </ul>
                     </MenuList>
-                }
+                    )}
+
             </MenuContainer>
         </Banner>
     );
@@ -32,33 +41,36 @@ const Header = ({ projects }) => {
 
 const Banner = styled.div`
     display: flex;
-    justify-content: space-between;
     background-color: white;
     height: 5rem;
     color: black;
     align-items: center;
     padding: 0 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 `
 
 const Logo = styled(Link)`
-    height: 80%;
-    border-radius: 100%;
-    border: yellow solid 2px;
+    height: 70%;
 
     img {
         height: 100%;
-        border-radius: 100%
     }
 `
 const MenuContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     position: relative;
 `
 const Projects = styled.button`
     border: none;
     background-color: transparent;
+    padding: 0 3rem;
     
     :hover {
         cursor: pointer;
+        color: #7bdcb5;
     }
 
     h3 {
@@ -67,21 +79,42 @@ const Projects = styled.button`
 `
 const MenuList = styled.div`
     display: flex;
-    position: absolute;
     right: 9rem;
     top: 6rem;
     color: white;
     font-size: 1.2rem;
     width: 100%;
+    position: absolute;
+    top: 2.5rem;
+    right: 0%;
 
     ul {
-        list-style: none
+        list-style: none;
+        animation: apparition 0.8s ease-out;
     }
 
     li {
-        padding: .5rem;
-        width: 200%;
-        text-align: right;
+        padding: 1rem 2rem;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: left;
+        margin: .5rem 0;
+
+        :hover {
+            background-color: black;
+            color: white
+        }
+    }
+
+    @keyframes apparition {
+        from {
+            opacity: 0;
+            transform: translateX(-100px)
+        }
+        to {
+            opacity: 1
+        }
     }
 `
 const ToProject = styled(Link)`

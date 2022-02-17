@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Name = () => {
     return (
         <Container>
-            <Picture src="https://cdn-icons-png.flaticon.com/512/3442/3442450.png" alt="icon" />
+            <Picture src="./resources/profilbw2.JPG" alt="profil" />
             <NameDiv>
                 <h2> Antonia TCHAKOUNTE</h2>
                 <h3> 29 ans, Toulouse </h3>
@@ -22,7 +22,7 @@ const Container = styled.div`
 `
 const Picture = styled.img`
     height: 10rem;
-    border: yellow solid 2px;
+    border: white solid 5px;
     border-radius: 100%;
     background-color: white;
     margin: 0 2rem;
@@ -34,5 +34,6 @@ const NameDiv = styled.div`
 
     h2 {
         font-weight: bold;
+        color: #7bdcb5;
     }
 `

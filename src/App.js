@@ -24,8 +24,8 @@ import GlobalStyle from './globalStyles';
 function App() {
 
   const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
-  const [skillProjects, setSkillProjects] = useState([])
+  const [skillProjects, setSkillProjects] = useState([]);
+  
   const [skillId, setSkillId] = useState(null);
   const [projectId, setProjectId] = useState(null);
 
@@ -33,7 +33,6 @@ function App() {
 
   useEffect(() => {
     getProjects(setProjects);
-    getSkills(setSkills);
     getProjectSkills(setSkillProjects);
   }, []);
 
@@ -46,13 +45,11 @@ function App() {
       <authContext.Provider value={{ isConnected, setIsConnected}} >
 
         <Routes>
-          <Route path='/' element={<Home skills={skills} projects={projects} />} />
-          <Route path='/:id' element={<Project projects={projects} skillProjects={skillProjects} />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/:id' element={<Project />} />
 
-            <Route path='/login' element={<Login />} />
-            {/* <Route element={PrivateRoute}> */}
-              <Route path='/new-project' element={<AddProject />} />
-            {/* </Route> */}
+          <Route path='/login' element={<Login />} />
+          <Route path='/new-project' element={<AddProject />} />
 
         </Routes>
       </authContext.Provider>

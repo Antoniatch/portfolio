@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import projectSkillsContext from "../context/skillProjects";
 
@@ -25,7 +25,9 @@ const ProjectsContainer = ({ projects }) => {
             <ProjectsList>
                 {!skillId
                     ? projects.map((project) => 
-                        <RawButton type='button'  key={project.id} onClick={() => setProjectId(project.id)}>
+                        <RawButton 
+                            type='button'
+                            key={project.id} onClick={() => setProjectId(project.id)}>
                             <ProjectCard project={project} key={project.id} />
                         </RawButton>
                     )
@@ -44,7 +46,7 @@ const ProjectsContainer = ({ projects }) => {
 export default ProjectsContainer;
 
 const ProjectsList = styled.div`
-    width: 80%;
+    width: 100%;
     margin: 2rem auto;
     display: flex;
     flex-direction: column;
@@ -53,4 +55,5 @@ const ProjectsList = styled.div`
 const CancelButton = styled.button`
     border: none;
     background-color: transparent;
+    cursor: pointer;
 `

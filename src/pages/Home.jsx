@@ -1,9 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react/cjs/react.development";
 
 import styled from "styled-components";
 
+import getProjects from "../data/projects";
+import getSkills from "../data/skills";
+
 import Page from "../styled-components/Page";
+
 import Name from "../components/Name";
 import Presentation from "../components/Presentation";
 import SkillsContainer from "../components/SkillsContainer";
@@ -11,7 +15,16 @@ import ProjectsContainer from "../components/ProjectsContainer";
 
 import authContext from "../context/authContext";
 
-const Home = ({ skills, projects }) => {
+const Home = () => {
+
+    const [projects, setProjects] = useState([]);
+    const [skills, setSkills] = useState([]);
+    
+    useEffect(() => {
+      getProjects(setProjects);
+      getSkills(setSkills);
+    }, []);
+
 
     const { setIsConnected } = useContext(authContext);
     useEffect(() => {
@@ -19,7 +32,6 @@ const Home = ({ skills, projects }) => {
     }, []);
 
     return (
-        <>
         <Page>
             <Name />
             <Presentation />
@@ -28,7 +40,6 @@ const Home = ({ skills, projects }) => {
                 <ProjectsContainer projects={projects} />
             </Container>
         </Page>
-        </>
     );
 }
 

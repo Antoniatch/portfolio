@@ -42,7 +42,7 @@ const Container = styled.div`
     }
 
     img {
-        margin: 0 1rem
+        margin: 0 1rem;
         transition: transform 1s ease;
     }
 

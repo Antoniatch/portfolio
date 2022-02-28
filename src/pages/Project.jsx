@@ -7,6 +7,7 @@ import Screenshot from '../components/Screenshot';
 import getProjects from "../data/projects";
 
 import Page from "../styled-components/Page";
+import GoToSite from '../components/GoToSite';
 
 const Project = () => {
     const [projects, setProjects] = useState([]);
@@ -32,9 +33,11 @@ const Project = () => {
                             <Screenshot screen={screen} />
                         )}
                     </ScreenContainer>
-                    <SimpleSkillsContainer id={project.id} />
+                    <Rightside>
+                        <SimpleSkillsContainer id={project.id} />
+                        <GoToSite link={project.link} />
+                    </Rightside>
                 </Container>
-                <Link href={project.link} target='_blank' rel="noopener noreferrer"> <h4> Accéder au site </h4> </Link>
             </Page>
         );
     } else {
@@ -49,12 +52,13 @@ const Container = styled.div`
     justify-content: space-between;
 `
 const ScreenContainer = styled.div`
+    display: flex;
     width: 40%;
     flex-direction: column;
     margin: 0 2rem;
 `
-const Link = styled.a`
-    text-decoration: none;
-    color: #7bdcb5;
-    padding: 1rem;
+const Rightside = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 50%;    
 `

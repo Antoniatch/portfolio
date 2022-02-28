@@ -48,8 +48,7 @@ const Name = styled.div`
     h4 {
         width: 80%;
         text-align: right;
-        transition: all .5s ease;
-    }
+        transition: transform 1s ease;
     }
 `
 const Logo = styled.img`
@@ -57,5 +56,5 @@ const Logo = styled.img`
     width: 3rem;
     border: white solid 2px;
     border-radius: 100%;
-    transition: all .5s ease;
+    transition: transform 1s ease;
 `

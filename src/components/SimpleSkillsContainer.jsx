@@ -9,7 +9,7 @@ const SimpleSkillsContainer = ({ id }) => {
     const { skillProjects } = useContext(projectSkillsContext);
 
     return (
-        <HomeCard>
+        <HomeCard width='100%'>
             <Title>
                 <h3> Technologies </h3>
             </Title>

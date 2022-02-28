@@ -26,7 +26,11 @@ const Header = ({ projects }) => {
                             onKeyDown={() => setShowMenu(!showMenu)}
                         >
                             {projects.map((project) =>
-                                <ToProject to={`/${project.id}`} key={project.id} >
+                                <ToProject 
+                                    to={`/${project.id}`} 
+                                    key={project.id}
+                                    onClick={() => setShowMenu(false)}
+                                >
                                     <li key={project.id}> {project.name} </li>
                                 </ToProject>
                             )}

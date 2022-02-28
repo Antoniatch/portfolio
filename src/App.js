@@ -14,7 +14,6 @@ import Footer from './components/Footer';
 
 
 import getProjects from './data/projects';
-import getSkills from './data/skills';
 import getProjectSkills from './data/project-skills';
 
 import GlobalStyle from './globalStyles';

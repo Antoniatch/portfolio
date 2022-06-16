@@ -10,7 +10,7 @@ const postProject = async (data, screen1, screen2 ) => {
           ]
         })
         .then(() => {
-          alert("Maison ajoutée !");
+          alert("Nouveau projet ajouté avec succès");
         })
         .catch((err) => {
           console.log(err);

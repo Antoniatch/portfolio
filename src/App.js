@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import Project from "./pages/Project";
 import Login from './pages/Login';
 import AddProject from './pages/AddProject';
+import AddProjectSkills from './pages/AddProjectSkills';
+import AddSkill from './pages/AddSkill';
+import Delete from './pages/Delete';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -30,6 +33,7 @@ function App() {
 
   const [isConnected, setIsConnected] = useState(false);
 
+
   useEffect(() => {
     getProjects(setProjects);
     getProjectSkills(setSkillProjects);
@@ -49,6 +53,9 @@ function App() {
 
           <Route path='/login' element={<Login />} />
           <Route path='/new-project' element={<AddProject />} />
+          <Route path='/new-skill' element={<AddSkill />} />
+          <Route path='/new-project-skills' element={<AddProjectSkills />} />
+          <Route path='/delete' element={<Delete />} />
 
         </Routes>
       </authContext.Provider>

@@ -43,7 +43,7 @@ const Login = () => {
                         onChange={(e) => setUser(e.target.value)}
                     />
                     <Input 
-                        type='text'
+                        type='password'
                         placeholder='Mot de passe'
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -55,7 +55,12 @@ const Login = () => {
                     </Submit>
 
                     {isConnected 
-                        ? <Goto to='/new-project'> <h4> Ajouter un projet </h4> </Goto> 
+                        ? <>
+                            <Goto to='/new-project'> <h4> Ajouter un projet </h4> </Goto> 
+                            <Goto to='/new-skill'> <h4> Ajouter une compétence </h4> </Goto> 
+                            <Goto to='/new-project-skills'> <h4> Associer des compétences à un projet </h4> </Goto> 
+                            <Goto to='/delete'> <h4> Supprimer des compétences ou projets </h4> </Goto> 
+                        </>
                         : <h4> {loginStatus} </h4>
                     }
 

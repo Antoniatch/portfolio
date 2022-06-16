@@ -15,7 +15,7 @@ const ProjectsContainer = ({ projects }) => {
     return (
         <HomeCard>
             <Title>
-                <h3> Mes projets </h3>
+                <h3> Projets </h3>
                 { skillId && 
                     <CancelButton type='button' onClick={() => setSkillId(null)}>
                         <img src="../resources/close.png" alt="Close" height='25px'/>

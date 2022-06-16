@@ -25,11 +25,15 @@ skillProjectsRouter.get('/', async (req, res) => {
 skillProjectsRouter.post('/', async (req, res) => {
     const skillProject = req.body;
     skill_projects
-      .create({ data: skillProject })
+      .createMany({ data: skillProject })
       .then((newSkillProject) => {
         res.status(200).json(newSkillProject)
     })
-})
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('Error creating the project-skill couple(s)')
+    });
+});
 
 
 module.exports = skillProjectsRouter;

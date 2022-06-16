@@ -39,6 +39,12 @@ const Container = styled.div`
         font-family: 'Roboto Mono', monospace;
         width: 80%;
         transition: transform 1s ease;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+            padding: .3rem 0;
+            font-size: 1.3rem;
+        }
     }
 
     img {

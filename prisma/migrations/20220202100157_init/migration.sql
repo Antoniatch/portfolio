@@ -27,7 +27,7 @@ CREATE TABLE `Skill_projects` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Skill_projects` ADD CONSTRAINT `Skill_projects_project_id_fkey` FOREIGN KEY (`project_id`) REFERENCES `Projects`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Skill_projects` ADD CONSTRAINT `Skill_projects_project_id_fkey` FOREIGN KEY (`project_id`) REFERENCES `Projects`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Skill_projects` ADD CONSTRAINT `Skill_projects_skill_id_fkey` FOREIGN KEY (`skill_id`) REFERENCES `Skills`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Skill_projects` ADD CONSTRAINT `Skill_projects_skill_id_fkey` FOREIGN KEY (`skill_id`) REFERENCES `Skills`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

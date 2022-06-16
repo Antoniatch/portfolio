@@ -16,7 +16,7 @@ const SimpleSkillsContainer = ({ id }) => {
             <SkillsList>
                 {skillProjects
                     .filter(skillProject => skillProject.project_id === parseInt(id))
-                    .map((skillProject) => <h4> {skillProject.skill.name} </h4>)
+                    .map((skillProject, index) => <h4 key={index}> {skillProject.skill.name} </h4>)
                 }
             </SkillsList>
         </HomeCard>

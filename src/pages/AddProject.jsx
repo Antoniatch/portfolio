@@ -1,9 +1,11 @@
 import { Navigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
+
 import authContext from "../context/authContext";
 import postProject from '../data/postProject';
+
 import Page from '../styled-components/Page';
 import styled from 'styled-components';
 import Input from '../styled-components/Input';
@@ -15,7 +17,7 @@ const AddProject = () => {
     const { isConnected, setIsConnected } = useContext(authContext);
     const { register, handleSubmit } = useForm();
 
-    const postData = (data) => {
+    const newProject = (data) => {
         const screenshot_1 = document.getElementById('screenshot_1').value;
         const screenshot_2 = document.getElementById('screenshot_2').value;
 
@@ -33,7 +35,7 @@ const AddProject = () => {
             <Title> Créer un nouveau projet </Title>
 
             <FormContainer
-                onSubmit={handleSubmit(postData)}
+                onSubmit={handleSubmit(newProject)}
                 enctype="multipart/form-data"
             >
                 <Input
@@ -85,6 +87,7 @@ export default AddProject;
 const Title = styled.h1`
     text-align: center;
 `
+
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;

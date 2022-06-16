@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+
 import styled from "styled-components";
+import Page from "../styled-components/Page";
+
 import ProjectPresentation from "../components/ProjectPresentation";
 import SimpleSkillsContainer from "../components/SimpleSkillsContainer";
 import Screenshot from '../components/Screenshot';
-import getProjects from "../data/projects";
-
-import Page from "../styled-components/Page";
 import GoToSite from '../components/GoToSite';
 
+import getProjects from "../data/projects";
+
+
 const Project = () => {
-    const [projects, setProjects] = useState([]);
+
+    const [ projects, setProjects ] = useState([]);
     const [ project, setProject ] = useState(null);
     
     const { id } = useParams();
@@ -25,12 +29,13 @@ const Project = () => {
     
     if (project) {
         return (
+
             <Page position='relative'>
                 <ProjectPresentation project={project} />
                 <Container>
                     <ScreenContainer>
-                        {project.screenshots.map((screen) =>
-                            <Screenshot screen={screen} />
+                        {project.screenshots.map((screen, index) =>
+                            <Screenshot screen={screen} key={index} />
                         )}
                     </ScreenContainer>
                     <Rightside>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Title from "../styled-components/Title";
+import CV from '../data/CV.pdf'
 
 const Presentation = () => {
     return (
@@ -11,6 +12,7 @@ const Presentation = () => {
             <TextContainer>
                 <Text>
                     Bonjour, je m'appelle Antonia, je suis développeuse.
+                    Vous trouverez mon CV <a href={CV} target="_blank" rel="noopener noreferrer">ici</a>
                 </Text>
                 <Subtitle> Parcours </Subtitle>
                 <Text>

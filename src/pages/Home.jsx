@@ -27,6 +27,7 @@ const Home = () => {
 
 
     const { setIsConnected } = useContext(authContext);
+
     useEffect(() => {
         setIsConnected(false)
     }, []);
@@ -47,5 +48,10 @@ export default Home;
 
 const Container = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `

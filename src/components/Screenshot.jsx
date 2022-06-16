@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Fade from './Fade';
 
 const Screenshot = ({ screen }) => {
-
     const [ growPicture, setGrowPicture ] = useState(false);
+
 
     return (
         <>
-        <Screendiv onClick={() => setGrowPicture(!growPicture)}>
-            <Picture src={screen} alt='screenshot' />
-        </Screendiv>
-        
-        {growPicture && (
-            <LargePicture onClick={() => setGrowPicture(!growPicture)}>
-                <img src={screen} alt="large-pic" />
-            </LargePicture>
-        )}
-    </>
+            <Screendiv onClick={() => setGrowPicture(!growPicture)}>
+                <Picture src={screen} alt='screenshot' />
+            </Screendiv>
+
+            {growPicture && (
+                <Fade>
+                <LargePicture onClick={() => setGrowPicture(!growPicture)} visible={growPicture}>
+                    <img src={screen} growPicture={growPicture} alt="large-pic" />
+                </LargePicture>
+                </Fade>
+            )}
+        </>
     );
 }
 
@@ -35,12 +38,17 @@ const Screendiv = styled.div`
 const Picture = styled.img`
     width: 95%;
     margin: 1rem 0;
-    transition: all .5s ease-out;
 `
 const LargePicture = styled.div`
-    width: 50%;
-    position: absolute;
-    top: 45%;
-    right: 65%;
-    transform: translate(50%,-50%);
+        width: 50%;
+        position: fixed;
+        z-index: 10;
+        top: 15%;
+        right: 40%;
+
+        img {
+            border: solid white 15px;
+            border-radius: 10px;
+            padding: 5px
+        }
 `

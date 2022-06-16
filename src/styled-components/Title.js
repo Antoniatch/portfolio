@@ -4,10 +4,9 @@ const Title = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #7bdcb5;
     height: auto;
-    padding: 1rem 3rem;
-    border-radius: 10px;
+    padding: 1rem;
+    border-bottom: solid #7bdcb5 3px;
 
     h3 {
         font-weight: bolder;

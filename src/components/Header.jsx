@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
+import MenuList from "./MenuList";
 
 const Header = ({ projects }) => {
 
@@ -18,26 +19,22 @@ const Header = ({ projects }) => {
                 <img src={logo} alt="profil" />
             </Logo>
             <MenuContainer>
-                <Projects type='button' onClick={() => setShowMenu(!showMenu)}> <h3> Mes projets </h3> </Projects>
-                    {showMenu && (
-                    <MenuList>
-                        <ul
-                            role='button'
-                            onKeyDown={() => setShowMenu(!showMenu)}
-                        >
-                            {projects.map((project) =>
-                                <ToProject 
+                <Projects type='button' onClick={() => setShowMenu(!showMenu)}> 
+                    <h3> Mes projets </h3> 
+                </Projects>
+                        <MenuList visible={showMenu}>
+                            <ul>
+                                {projects.map((project) =>
+                                    <ToProject 
                                     to={`/${project.id}`} 
                                     key={project.id}
                                     onClick={() => setShowMenu(false)}
-                                >
-                                    <li key={project.id}> {project.name} </li>
-                                </ToProject>
-                            )}
-                        </ul>
-                    </MenuList>
-                    )}
-
+                                    >
+                                        <li key={project.id}> {project.name} </li>
+                                    </ToProject>
+                                )}
+                            </ul>
+                        </MenuList>
             </MenuContainer>
         </Banner>
     );
@@ -78,47 +75,8 @@ const Projects = styled.button`
     }
 
     h3 {
-        font-family: 'Courier New'
-    }
-`
-const MenuList = styled.div`
-    display: flex;
-    right: 9rem;
-    top: 6rem;
-    color: white;
-    font-size: 1.2rem;
-    width: 100%;
-    position: absolute;
-    top: 2.5rem;
-    right: 0%;
-
-    ul {
-        list-style: none;
-        animation: apparition 0.8s ease-out;
-    }
-
-    li {
-        padding: 1rem 2rem;
-        width: 100%;
-        background-color: white;
-        color: black;
-        text-align: left;
-        margin: .5rem 0;
-
-        :hover {
-            background-color: black;
-            color: white
-        }
-    }
-
-    @keyframes apparition {
-        from {
-            opacity: 0;
-            transform: translateX(-100px)
-        }
-        to {
-            opacity: 1
-        }
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold
     }
 `
 const ToProject = styled(Link)`

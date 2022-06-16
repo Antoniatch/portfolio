@@ -38,6 +38,10 @@ const Container = styled.div`
     :hover .project {
         transform: scale(1.1);
     }
+
+    @media screen and (max-width: 600px) {
+        padding: .5rem 1rem;
+    }
 `
 const Name = styled.div`
     display: flex;
@@ -46,15 +50,29 @@ const Name = styled.div`
     align-items: center;
 
     h4 {
-        width: 80%;
+        width: 95%;
         text-align: right;
         transition: transform 1s ease;
+
     }
-`
+
+    @media screen and (max-width: 600px) {
+        
+        h4 {
+            font-size: 1.3rem;
+        }
+    }
+    `
 const Logo = styled.img`
     height: 3rem;
     width: 3rem;
     border: white solid 2px;
     border-radius: 100%;
     transition: transform 1s ease;
+    
+    @media screen and (max-width: 600px) {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
 `

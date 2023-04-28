@@ -72,6 +72,25 @@ const GlobalStyle = createGlobalStyle`
     transform: translateX(-600px);
   }
 
+  .vertical-timeline-element-content {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: black;
+  }
+
+  .date {
+    color: #7bdcb5;
+    font-size: 2rem !important;
+    font-weight: bolder !important;
+    padding: 0 .5em !important;
+  }
+
+  @media only screen and (max-width: 1170px) {
+    .vertical-timeline-element-date {
+      font-size: 1.2rem !important;
+      padding: .5em 0 !important;
+    }
+  }
 `;
  
 export default GlobalStyle;
